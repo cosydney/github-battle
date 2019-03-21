@@ -1,8 +1,14 @@
 var axios = require('axios');
 
-var id = "YOUR_CLIENT_ID";
-var sec = "YOUR_SECRET_ID";
-var params = "?client_id=" + id + "&client_secret=" + sec;
+  var id = "72fdf16ea6e6d53d7f1b";
+  var sec = "06abcbdeb1c4bc83e38d7bf1d28f713a79024496";
+  var params = "?client_id=" + id + "&client_secret=" + sec;
+  var language = 'ruby';
+
+  axios.get('https://api.github.com/search/repositories?q=stars:>1+language:'+ language + '&sort=stars&order=desc&type=Repositories' + params)
+  .then((data) =>{
+    console.log("YALA", data);
+  });
 
 function getProfile (username) {
   return axios.get('https://api.github.com/users/' + username + params)
